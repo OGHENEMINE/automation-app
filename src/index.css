@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Public-Sans-Regular";
+  src: local("Public-Sans-Regular"),
+  url("../src/assets/fonts/PublicSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Public-Sans-Medium";
+  src: local("Public-Sans-Medium"),
+  url("../src/assets/fonts/PublicSans-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Public-Sans-Bold";
+  src: local("Public-Sans-Bold"),
+  url("../src/assets/fonts/PublicSans-Bold.ttf") format("truetype");
+}
