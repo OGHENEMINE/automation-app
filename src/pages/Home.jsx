@@ -6,17 +6,22 @@ import HeadPhones from "../assets/Headphones.svg";
 import Star from "../assets/Star.svg";
 import Search from "../assets/MagnifyingGlass.svg";
 import SelectCaretDown from "../assets/CaretDown.svg";
+import TinyHeart from "../assets/TinyHeart.svg";
+import Preview from "../assets/Eye.svg";
+import ShoppingCart from "../assets/ShoppingCartSimple.svg";
 import Favourite from "../assets/FavouriteStar.svg";
 import { Products } from "../util/Products";
 import Input from "../components/Input";
 import Buttons from "../components/Buttons";
+import { Link } from "react-router-dom";
+import { EyeIcon, HeartIcon, ShoppingCartIcon } from "lucide-react";
 function Home() {
-  const [dropDown, setDropDown] = useState(false)
+  const [dropDown, setDropDown] = useState(false);
 
-  const [dropDownOption, setDropDownOption] = useState("")
+  const [dropDownOption, setDropDownOption] = useState("");
 
   return (
-    <main className="font-Public-Sans-Regular font-normal text-zinc-900">
+    <main>
       <div className="flex items-center justify-between mx-[120px]">
         {/* SEARCH */}
         <div className="w-1/3 px-4 py-3 bg-white rounded-sm border border-gray-200 justify-center items-center gap-2 inline-flex mb-6">
@@ -24,7 +29,7 @@ function Home() {
             type="text"
             label="search"
             placeholder="Search for anything..."
-            id="search-input"
+            id="product-search-input"
           />
           <Buttons type="icon-button" icon={<img alt="" src={Search} />} />
         </div>
@@ -36,14 +41,31 @@ function Home() {
           </h6>
           <div className="border relative border-gray-200 rounded-sm cursor-pointer px-4 py-3 flex items-center gap-[45px] ">
             <span className="text-sm">{dropDownOption}</span>
-            <ul className={dropDown? "px-2 py-3 bg-white transition-all duration-500 absolute top-full left-0 right-0 border border-gray-200" : "hidden"}>
-            {["Most popular", "Newest", "Oldest"].map((item) => (
-              <li key={item} onClick={() => setDropDownOption(item)} className={`p-2 mb-1 ${dropDownOption === item ? "bg-orange-500" : "hover:bg-orange-500 hover:text-white"}`}>{item}</li>
-            ))}
-
+            <ul
+              className={
+                dropDown
+                  ? "px-2 py-3 bg-white transition-all duration-500 absolute top-full left-0 right-0 border border-gray-200"
+                  : "hidden"
+              }
+            >
+              {["Most popular", "Newest", "Oldest"].map((item) => (
+                <li
+                  key={item}
+                  onClick={() => setDropDownOption(item)}
+                  className={`p-2 mb-1 ${
+                    dropDownOption === item
+                      ? "bg-orange-500"
+                      : "hover:bg-orange-500 hover:text-white"
+                  }`}
+                >
+                  {item}
+                </li>
+              ))}
             </ul>
 
-            <span onClick={() => setDropDown(!dropDown)}><img src={SelectCaretDown} alt="a select button icon"/></span>
+            <span onClick={() => setDropDown(!dropDown)}>
+              <img src={SelectCaretDown} alt="a select button icon" />
+            </span>
           </div>
         </div>
       </div>
@@ -89,15 +111,27 @@ function Home() {
       </div>
 
       {/* PRODUCTS START HERE */}
-      <div className="mx-[120px] mb-6 flex items-center justify-between gap-4 flex-wrap">
-        {Products.map(({ img, text }) => (
-          <>
-            <div className="w-[234px] p-4 rounded-[3px] border border-gray-200">
-              <img
-                className="w-[202px] h-[172px]"
-                src={img}
-                alt="picture of an iphone"
-              />
+      <div className="mx-[120px] mb-6 text-sm flex items-center justify-between gap-4 flex-wrap">
+        {Products.map(({ id, img, text, price }, index) => (
+          <div key={index} className="w-[234px] group hover:shadow hover:border-neutral-300 cursor-pointer p-4 rounded-[3px] border border-gray-200">
+              <div className="relative mb-6">
+                <img
+                  className="w-[202px] h-[172px]"
+                  src={img}
+                  alt="picture of an iphone"
+                />
+                <div className="group-hover:flex hidden absolute top-0 bottom-0 left-0 right-0 bg-black bg-opacity-20 items-center justify-center gap-2">
+                  <Link className="bg-white hover:text-white p-3 rounded-full hover:bg-orange-400">
+                    <HeartIcon/>
+                  </Link>
+                  <Link className="bg-white hover:text-white p-3 rounded-full hover:bg-orange-400">
+                    <ShoppingCartIcon/>
+                  </Link>
+                  <Link className="bg-white hover:text-white p-3 rounded-full hover:bg-orange-400" to={`/products/${id}`}>
+                    <EyeIcon/>
+                  </Link>
+                </div>
+              </div>
 
               {/* CONTAINER FOR STARS AND WRITEUP START HERE */}
               <div>
@@ -120,11 +154,13 @@ function Home() {
                 </div>
               </div>
 
-              <p className="text-zinc-900 text-sm font-Public-Sans-Regular font-normal">
+              <h6 className="text-zinc-900 font-Public-Sans-Regular font-normal">
                 {text}
-              </p>
+              </h6>
+              <h6 className="text-sky-400 font-Public-Sans-Semibold font-semibold">
+                {price}
+              </h6>
             </div>
-          </>
         ))}
       </div>
 

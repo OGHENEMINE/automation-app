@@ -18,6 +18,7 @@ import Youtube from "../assets/Youtube.svg";
 import Buttons from "./Buttons";
 import { Link } from "react-router-dom";
 import Input from "./Input";
+import { useState } from "react";
 // import { PhoneCallIcon } from "lucide-react";
 function Navbar() {
   return (
@@ -80,7 +81,7 @@ function Navbar() {
         <div className="flex items-center justify-center gap-6">
           <FontAwesomeIcon icon={faShoppingCart} className="w-7 h-7" />
           <img alt="" src={Heart} />
-          <img alt="" src={User} />
+          <Link to="/sign-up"><img src={User} alt="a user icon" /></Link>
         </div>
       </div>
 

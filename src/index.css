@@ -15,6 +15,12 @@
 }
 
 @font-face {
+  font-family: "Public-Sans-Semibold";
+  src: local("Public-Sans-Semibold"),
+  url("../src/assets/fonts/PublicSans-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "Public-Sans-Bold";
   src: local("Public-Sans-Bold"),
   url("../src/assets/fonts/PublicSans-Bold.ttf") format("truetype");

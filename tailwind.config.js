@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         "Public-Sans-Regular": ["Public-Sans-Regular","sans-serif"],
         "Public-Sans-Medium": ["Public-Sans-Medium","sans-serif"],
+        "Public-Sans-Semibold": ["Public-Sans-Semibold","sans-serif"],
         "Public-Sans-Bold": ["Public-Sans-Bold","sans-serif"],
       }
     },
