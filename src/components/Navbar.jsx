@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "./Buttons";
-import { faAngleDown, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import PhoneCall from "../assets/PhoneCall.svg";
 import MapPinLine from "../assets/MapPinLine.svg";
 import Heart from "../assets/Heart.svg";
@@ -18,11 +17,10 @@ import Youtube from "../assets/Youtube.svg";
 import Buttons from "./Buttons";
 import { Link } from "react-router-dom";
 import Input from "./Input";
-import { useState } from "react";
 // import { PhoneCallIcon } from "lucide-react";
 function Navbar() {
   return (
-    <nav className="shadow text-white font-Public-Sans-Regular font-normal mb-6">
+    <nav className="shadow text-white font-Public-Sans-Regular font-normal">
       {/* THE TOP NAV STARTS HERE */}
       <div className="bg-[#1B6392] border-b border-opacity-20 text-sm border-b-white flex items-center justify-between px-[120px] py-3">
         <p>Welcome to Twiss online eCommerce store.</p>
@@ -81,7 +79,9 @@ function Navbar() {
         <div className="flex items-center justify-center gap-6">
           <FontAwesomeIcon icon={faShoppingCart} className="w-7 h-7" />
           <img alt="" src={Heart} />
-          <Link to="/sign-up"><img src={User} alt="a user icon" /></Link>
+          <Link to="/sign-up">
+            <img src={User} alt="a user icon" />
+          </Link>
         </div>
       </div>
 
@@ -89,11 +89,6 @@ function Navbar() {
       <div className="text-zinc-900 text-sm flex items-center justify-between px-[120px] py-4">
         {/* BOTTOM NAV LEFT SIDE */}
         <div className="flex items-center gap-6">
-          <Button
-            text="All Category"
-            type="bottom nav"
-            icon={<FontAwesomeIcon icon={faAngleDown} />}
-          />
           <ul className="inline-flex items-center gap-6 ">
             <Link className="inline-flex items-center justify-center gap-1.5 hover:text-orange-500">
               {" "}

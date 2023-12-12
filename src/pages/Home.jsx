@@ -6,10 +6,6 @@ import HeadPhones from "../assets/Headphones.svg";
 import Star from "../assets/Star.svg";
 import Search from "../assets/MagnifyingGlass.svg";
 import SelectCaretDown from "../assets/CaretDown.svg";
-import TinyHeart from "../assets/TinyHeart.svg";
-import Preview from "../assets/Eye.svg";
-import ShoppingCart from "../assets/ShoppingCartSimple.svg";
-import Favourite from "../assets/FavouriteStar.svg";
 import { Products } from "../util/Products";
 import Input from "../components/Input";
 import Buttons from "../components/Buttons";
@@ -21,8 +17,8 @@ function Home() {
   const [dropDownOption, setDropDownOption] = useState("");
 
   return (
-    <main>
-      <div className="flex items-center justify-between mx-[120px]">
+    <>
+      <div className="flex items-center justify-between mx-[120px] mt-6">
         {/* SEARCH */}
         <div className="w-1/3 px-4 py-3 bg-white rounded-sm border border-gray-200 justify-center items-center gap-2 inline-flex mb-6">
           <Input
@@ -31,7 +27,10 @@ function Home() {
             placeholder="Search for anything..."
             id="product-search-input"
           />
-          <Buttons type="icon-button" icon={<img alt="" src={Search} />} />
+          <Buttons
+            type="icon-button"
+            icon={<img src={Search} alt="search icon" />}
+          />
         </div>
 
         {/* FILTER CONTAINER STARTS HERE */}
@@ -113,59 +112,65 @@ function Home() {
       {/* PRODUCTS START HERE */}
       <div className="mx-[120px] mb-6 text-sm flex items-center justify-between gap-4 flex-wrap">
         {Products.map(({ id, img, text, price }, index) => (
-          <div key={index} className="w-[234px] group hover:shadow hover:border-neutral-300 cursor-pointer p-4 rounded-[3px] border border-gray-200">
-              <div className="relative mb-6">
-                <img
-                  className="w-[202px] h-[172px]"
-                  src={img}
-                  alt="picture of an iphone"
-                />
-                <div className="group-hover:flex hidden absolute top-0 bottom-0 left-0 right-0 bg-black bg-opacity-20 items-center justify-center gap-2">
-                  <Link className="bg-white hover:text-white p-3 rounded-full hover:bg-orange-400">
-                    <HeartIcon/>
-                  </Link>
-                  <Link className="bg-white hover:text-white p-3 rounded-full hover:bg-orange-400">
-                    <ShoppingCartIcon/>
-                  </Link>
-                  <Link className="bg-white hover:text-white p-3 rounded-full hover:bg-orange-400" to={`/products/${id}`}>
-                    <EyeIcon/>
-                  </Link>
-                </div>
+          <div
+            key={index}
+            className="w-[234px] group hover:shadow hover:border-neutral-300 cursor-pointer p-4 rounded-[3px] border border-gray-200"
+          >
+            <div className="relative mb-6">
+              <img
+                className="w-[202px] h-[172px]"
+                src={img}
+                alt="picture of an iphone"
+              />
+              <div className="group-hover:flex hidden absolute top-0 bottom-0 left-0 right-0 bg-black bg-opacity-20 items-center justify-center gap-2">
+                <Link className="bg-white hover:text-white p-3 rounded-full hover:bg-orange-400">
+                  <HeartIcon />
+                </Link>
+                <Link className="bg-white hover:text-white p-3 rounded-full hover:bg-orange-400">
+                  <ShoppingCartIcon />
+                </Link>
+                <Link
+                  className="bg-white hover:text-white p-3 rounded-full hover:bg-orange-400"
+                  to={`/products?id=${id}`}
+                >
+                  <EyeIcon />
+                </Link>
               </div>
-
-              {/* CONTAINER FOR STARS AND WRITEUP START HERE */}
-              <div>
-                <div className="flex items-center gap-1">
-                  <span>
-                    <img src={Star} alt="a start icon" />
-                  </span>
-                  <span>
-                    <img src={Star} alt="a start icon" />
-                  </span>
-                  <span>
-                    <img src={Star} alt="a start icon" />
-                  </span>
-                  <span>
-                    <img src={Star} alt="a start icon" />
-                  </span>
-                  <span>
-                    <img src={Star} alt="a start icon" />
-                  </span>
-                </div>
-              </div>
-
-              <h6 className="text-zinc-900 font-Public-Sans-Regular font-normal">
-                {text}
-              </h6>
-              <h6 className="text-sky-400 font-Public-Sans-Semibold font-semibold">
-                {price}
-              </h6>
             </div>
+
+            {/* CONTAINER FOR STARS AND WRITEUP START HERE */}
+            <div>
+              <div className="flex items-center gap-1">
+                <span>
+                  <img src={Star} alt="a start icon" />
+                </span>
+                <span>
+                  <img src={Star} alt="a start icon" />
+                </span>
+                <span>
+                  <img src={Star} alt="a start icon" />
+                </span>
+                <span>
+                  <img src={Star} alt="a start icon" />
+                </span>
+                <span>
+                  <img src={Star} alt="a start icon" />
+                </span>
+              </div>
+            </div>
+
+            <h6 className="text-zinc-900 font-Public-Sans-Regular font-normal">
+              {text}
+            </h6>
+            <h6 className="text-sky-400 font-Public-Sans-Semibold font-semibold">
+              {price}
+            </h6>
+          </div>
         ))}
       </div>
 
       {/* NEWLETTER SUBSCRIPTION CONTAINER START HERE */}
-    </main>
+    </>
   );
 }
 

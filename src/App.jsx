@@ -1,11 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import AppLayout from "./layouts/AppLayout";
-import Products from "./pages/Products";
+import ProductsPreview from "./pages/ProductsPreview";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ResetPassword from "./pages/ResetPassword";
 import ForgetPassword from "./pages/ForgetPassword";
+import EmailVerification from "./pages/EmailVerification";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -13,11 +15,13 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/products/:id" element={<Products />} />
+          <Route path="/products" element={<ProductsPreview />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/reset-password" element={<ResetPassword/>} />
-          <Route path="/forgot-password" element={<ForgetPassword/>} />
+          <Route path="/forget-password" element={<ForgetPassword/>} />
+          <Route path="/email-verification" element={<EmailVerification/>} />
+          <Route path="*" element={<NotFound/>} />
         </Route>
       </Routes>
     </>
