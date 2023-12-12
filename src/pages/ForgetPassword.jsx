@@ -7,24 +7,35 @@ import Breadcrumb from "../components/Breadcrumb";
 
 function ForgetPassword() {
   const navigate = useNavigate();
+  const string = "Don't have an account?"
 
   const handleCodeVerification = (e) => {
     e.preventDefault();
-    navigate("/email-verification")
-  }
+    navigate("/email-verification");
+  };
   return (
     <>
       <Breadcrumb>
-        <Link className="flex items-center gap-2 hover:text-[#2DA5F3] focus:text-[#2DA5F3]" to="/">
+        <Link
+          className="flex items-center gap-2 hover:text-[#2DA5F3] focus:text-[#2DA5F3]"
+          to="/"
+        >
           <Home size={18} />
           Home
         </Link>
         <ChevronRight size={18} />
         <span>User Account</span>
         <ChevronRight size={18} />
-        <Link className="hover:text-[#2DA5F3] focus:text-[#2DA5F3]" to="/sign-in">Sign In</Link>
+        <Link
+          className="hover:text-[#2DA5F3] focus:text-[#2DA5F3]"
+          to="/sign-in"
+        >
+          Sign In
+        </Link>
         <ChevronRight size={18} />
-        <span className="text-[#2DA5F3] font-Public-Sans-Medium">Forget Password</span>
+        <span className="text-[#2DA5F3] font-Public-Sans-Medium">
+          Forget Password
+        </span>
       </Breadcrumb>
       <div className="text-zinc-900 w-[424px] mx-auto shadow my-6">
         <form className="px-8 py-6">
@@ -58,7 +69,7 @@ function ForgetPassword() {
             </Link>
           </h6>
           <h6 className="text-sm font-Public-Sans-Medium">
-            Don&apost have account?
+            {string}
             <Link className="text-sky-400" to="/sign-up">
               Sign Up
             </Link>
