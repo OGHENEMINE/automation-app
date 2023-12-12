@@ -1,7 +1,6 @@
 import React from "react";
-import Buttons from "../components/Buttons";
 import { ArrowLeftIcon, HomeIcon } from "lucide-react";
-import NotFoundImg from "../assets/Oops! 404 Error with a broken robot-rafiki (1) 1.png"
+import NotFoundImg from "../assets/Oops! 404 Error with a broken robot-rafiki (1) 1.png";
 import { Link, useNavigate } from "react-router-dom";
 
 function NotFound() {
