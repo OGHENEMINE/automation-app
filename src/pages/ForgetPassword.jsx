@@ -2,10 +2,16 @@ import React from "react";
 import Buttons from "../components/Buttons";
 import { ArrowRightIcon, ChevronRight, Home } from "lucide-react";
 import Input from "../components/Input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Breadcrumb from "../components/Breadcrumb";
 
 function ForgetPassword() {
+  const navigate = useNavigate();
+
+  const handleCodeVerification = (e) => {
+    e.preventDefault();
+    navigate("/email-verification")
+  }
   return (
     <>
       <Breadcrumb>
@@ -42,6 +48,7 @@ function ForgetPassword() {
             text="SEND CODE"
             className="my-6 flex items-center justify-center gap-2 text-sm px-4 rounded-sm w-full bg-orange-400 hover:shadow hover:bg-orange-500 text-white py-3 font-Public-Sans-Bold"
             icon={<ArrowRightIcon />}
+            onClick={handleCodeVerification}
           />
 
           <h6 className="text-sm font-Public-Sans-Medium">

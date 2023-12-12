@@ -15,10 +15,18 @@ function SignUp() {
     e.preventDefault();
     setRevealPassword(!revealPassword);
   };
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    console.log("sign up complete!");
+  };
   return (
     <>
       <Breadcrumb>
-        <Link className="flex items-center gap-2 hover:text-[#2DA5F3] focus:text-[#2DA5F3]" to="/">
+        <Link
+          className="flex items-center gap-2 hover:text-[#2DA5F3] focus:text-[#2DA5F3]"
+          to="/"
+        >
           <Home size={18} />
           Home
         </Link>
@@ -84,6 +92,7 @@ function SignUp() {
             text="SIGN UP"
             className="my-6 flex items-center justify-center gap-2 text-sm px-4 rounded-sm w-full bg-orange-400 hover:shadow hover:bg-orange-500 text-white py-3 font-Public-Sans-Bold"
             icon={<ArrowRightIcon />}
+            onClick={handleSignUp}
           />
 
           <h6 className="text-sm text-slate-500 mb-3 relative after:absolute before:absolute after:top-1/2 after:-translate-y-1/2 after:-right-3 before:top-1/2 before:-translate-y-1/2 before:-left-3 after:inline-block before:inline-block after:h-[1px] before:h-[1px] after:bg-gray-200 before:bg-gray-200 text-center after:w-1/2 before:w-1/2 overflow-hidden">
